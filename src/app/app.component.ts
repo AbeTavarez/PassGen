@@ -6,8 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  includeLetters = false;
+  password: string = '';
+
+  onChangeUseLetters() {
+    this.includeLetters = !this.includeLetters;
+  }
+
   onButtonClick() {
-    console.log('button was clicked');
+    console.log(this.includeLetters);
+    
+    this.password = 'my password!!';
     
   }
+
+
 }
