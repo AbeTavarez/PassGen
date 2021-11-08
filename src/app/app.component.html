@@ -1,35 +1,38 @@
 <h1>PassGen</h1>
 
-<div>
-  <label>Enter Password Length</label>
-  <input type="number" (input)="onChangeLength($event)"/>
-</div>
+<div class="container">
+  <div>
+    <label>Enter Password Length</label>
+    <input type="number" (input)="onChangeLength($event)" />
+  </div>
 
-<div>
-  <label>Use Letters</label>
-  <input type="checkbox" (change)="onChangeUseLetters()"/>
-</div>
+  <div>
+    <input type="checkbox" (change)="onChangeUseLetters()" />
+    <label>Use Letters</label>
+  </div>
 
-<div>
-  <label>Use Numbers</label>
-  <input type="checkbox" (change)="onChangeUseNumbers()"/>
-</div>
-<div>
-  <label>Use Symbols</label>
-  <input type="checkbox"(change)="onChangeUseSymbols()"/>
-</div>
+  <div>
+    <input type="checkbox" (change)="onChangeUseNumbers()" />
+    <label>Use Numbers</label>
+  </div>
+  <div>
+    <input type="checkbox" (change)="onChangeUseSymbols()" />
+    <label>Use Symbols</label>
+  </div>
 
-<div>
-  <button
-    [disabled]="!(length && (includeLetters || includeSymbols || includeNumbers))"
+  <div>
+    <button
+      [disabled]="
+        !(length && (includeLetters || includeSymbols || includeNumbers))
+      "
+      (click)="onButtonClick()"
+    >
+      Generate Password
+    </button>
+  </div>
 
-    (click)="onButtonClick()">
-    Generate Password
-  </button>
+  <div>
+    <label>Your new Password: </label>
+    <input [value]="password" class=""/>
+  </div>
 </div>
-
-<div>
-  <label>Your new Password: </label>
-  <input [value]="password"/>
-</div>
-
