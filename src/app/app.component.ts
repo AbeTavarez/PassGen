@@ -39,7 +39,7 @@ export class AppComponent {
     
     const numbers: string = '1234567890';
     const letters: string = 'abcdefghijkmnopqrstuvwxyz';
-    const symbols: string = '!@#$%^&*()_+';
+    const symbols: string = '!@#$%^&*_+-=';
 
     let validChars: string = '';
 

@@ -1,38 +1,44 @@
-<h1>PassGen</h1>
-
 <div class="container">
-  <div>
-    <label>Enter Password Length</label>
-    <input type="number" (input)="onChangeLength($event)" />
+  <h1>PassGen</h1>
+
+  <div class="mb-3">
+    <label class="form-label">Enter Password Length</label>
+    <input
+      type="number"
+      (input)="onChangeLength($event)"
+      class="form-control"
+    />
   </div>
 
-  <div>
-    <input type="checkbox" (change)="onChangeUseLetters()" />
-    <label>Use Letters</label>
-  </div>
+  <div class="mb-3 form-check">
+    <div class="">
+      <input type="checkbox" (change)="onChangeUseLetters()" class="form-check-input"/>
+      <label>Use Letters</label>
+    </div>
 
-  <div>
-    <input type="checkbox" (change)="onChangeUseNumbers()" />
-    <label>Use Numbers</label>
+    <div>
+      <input type="checkbox" (change)="onChangeUseNumbers()" class="form-check-input"/>
+      <label>Use Numbers</label>
+    </div>
+    <div>
+      <input type="checkbox" (change)="onChangeUseSymbols()" class="form-check-input"/>
+      <label>Use Symbols</label>
+    </div>
   </div>
-  <div>
-    <input type="checkbox" (change)="onChangeUseSymbols()" />
-    <label>Use Symbols</label>
-  </div>
-
   <div>
     <button
       [disabled]="
         !(length && (includeLetters || includeSymbols || includeNumbers))
       "
       (click)="onButtonClick()"
+      class="btn btn-primary"
     >
       Generate Password
     </button>
   </div>
 
-  <div>
-    <label>Your new Password: </label>
-    <input [value]="password" class=""/>
+  <div *ngIf="password" class="mb-2 mt-5">
+    <label class="form-check-label h5" for="new-pass">Your new Password: </label>
+    <input [value]="password" class="form-check-label" id="new-pass"/>
   </div>
 </div>
