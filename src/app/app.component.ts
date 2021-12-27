@@ -19,11 +19,11 @@ export class AppComponent {
 
   onChangeUseNumbers() {
     return this.includeNumbers = !this.includeNumbers;
-  }
+  };
 
   onChangeUseSymbols() {
     return this.includeSymbols = !this.includeSymbols;
-  }
+  };
 
   onChangeLength(event: any) {
     const parseValue = parseInt(event?.target?.value);
@@ -33,13 +33,13 @@ export class AppComponent {
     if (!isNaN(parseValue)) {
       this.length = parseValue;
     }
-  }
+  };
 
   onButtonClick() {
     
-    const numbers: string = '1234567890';
+    const numbers: string = '0123456789';
     const letters: string = 'abcdefghijkmnopqrstuvwxyz';
-    const symbols: string = '!@#$%^&*_+-=';
+    const symbols: string = '!@#$%^&*_+-=()';
 
     let validChars: string = '';
 
@@ -59,8 +59,7 @@ export class AppComponent {
 
     for (let i=0; i<this.length; i++){
       const index = Math.floor(Math.random() * validChars.length);
-     generatedPassword += validChars[index];
-      
+      generatedPassword += validChars[index];
     }
     this.password = generatedPassword;
   }
